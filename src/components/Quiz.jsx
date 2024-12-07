@@ -10,6 +10,7 @@ export default function Quiz() {
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   function handleSelectAnswer(selectedAnswer) {
+    console.log("answer was selected or time out:", selectedAnswer);
     setUserAnswers((prevUserAnswers) => [...prevUserAnswers, selectedAnswer]);
   }
 
@@ -29,7 +30,7 @@ export default function Quiz() {
     <div id="quiz">
       <div id="question">
         <QuestionTimer
-          timeout={5_000}
+          timeout={10000}
           onTimeOut={() => handleSelectAnswer(null)}
         />
         <h2>{QUESTIONS[activeQuestionIndex].text}</h2>
